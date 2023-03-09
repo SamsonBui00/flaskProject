@@ -1,10 +1,7 @@
 from flask import Flask, render_template, flash, redirect
-from config import Config
-from forms import LoginForm
+from app import app
+from app.forms import LoginForm
 
-app = Flask(__name__)
-
-app.config.from_object(Config)
 
 
 @app.route('/')
@@ -33,7 +30,4 @@ def login():
         return redirect('/index')
     return render_template('login.html', title='Sign In', form=form)
 
-
-if __name__ == '__main__':
-    app.run()
 
